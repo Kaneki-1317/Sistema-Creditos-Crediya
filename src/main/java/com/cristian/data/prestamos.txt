@@ -1,0 +1,73 @@
+-------- Lista de Prestamos --------
+ID: 1
+Cliente ID: 1
+Empleado ID: 1
+Monto total: 5.000.000,00
+Interés: 4.2
+Cuotas: 6
+Fecha inicio: 2024-10-10
+Estado: VENCIDO
+---------------------------------
+ID: 2
+Cliente ID: 2
+Empleado ID: 2
+Monto total: 7.000.000,00
+Interés: 5.1
+Cuotas: 9
+Fecha inicio: 2025-01-20
+Estado: ACTIVO
+---------------------------------
+ID: 3
+Cliente ID: 3
+Empleado ID: 3
+Monto total: 5.000.000,00
+Interés: 4.8
+Cuotas: 7
+Fecha inicio: 2024-08-15
+Estado: VENCIDO
+---------------------------------
+ID: 4
+Cliente ID: 4
+Empleado ID: 2
+Monto total: 11.000.000,00
+Interés: 6.0
+Cuotas: 11
+Fecha inicio: 2025-02-01
+Estado: ACTIVO
+---------------------------------
+ID: 5
+Cliente ID: 5
+Empleado ID: 1
+Monto total: 4.000.000,00
+Interés: 3.9
+Cuotas: 5
+Fecha inicio: 2024-05-05
+Estado: VENCIDO
+---------------------------------
+ID: 6
+Cliente ID: 6
+Empleado ID: 4
+Monto total: 15.000.000,00
+Interés: 6.5
+Cuotas: 15
+Fecha inicio: 2025-03-10
+Estado: ACTIVO
+---------------------------------
+ID: 7
+Cliente ID: 9
+Empleado ID: 3
+Monto total: 0,00
+Interés: 3.5
+Cuotas: 4
+Fecha inicio: 2024-06-01
+Estado: Pagado
+---------------------------------
+ID: 8
+Cliente ID: 8
+Empleado ID: 3
+Monto total: 8.500.000,00
+Interés: 4.7
+Cuotas: 8
+Fecha inicio: 2024-07-20
+Estado: VENCIDO
+---------------------------------
