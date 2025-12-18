@@ -80,3 +80,16 @@ INSERT INTO pagos (prestamo_id, fecha_pago, monto) VALUES
 (7, '2024-10-01', 1000000);
 
 
+
+DELIMITER$$
+
+CREATE TRIGGER actualizar_monto_pago
+AFTER INSERT ON pagos
+FOR EACH ROW
+BEGIN
+    UPDATE prestamos
+    set monto = monto - NEW.monto
+    WHERE id = NEW.prestamo_id;
+END $$
+
+DELIMITER;
