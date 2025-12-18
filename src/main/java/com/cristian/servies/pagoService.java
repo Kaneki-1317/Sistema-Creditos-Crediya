@@ -14,6 +14,61 @@ import com.cristian.conector.conexionMysql;
 
 public class pagoService {
 
+    public void GestorPagos(Scanner input){
+        String gestorPago = "INSERT INTO pagos(prestamo_id, fecha_pago, monto) VALUES(?, ?, ?)";
+        String prestamoPago = "SELECT monto FROM prestamos WHERE id = ?";
+        try (Connection conexion = conexionMysql.conectar()) {
+
+            System.out.println("Ingrese el id del prestamos que quieres pagar");
+            int prestamoId = input.nextInt();
+            input.nextLine();
+
+            double montoActual = 0;
+
+            try (PreparedStatement stmt = conexion.prepareStatement(prestamoPago)) {
+                stmt.setInt(1, prestamoId);
+                ResultSet rs = stmt.executeQuery();
+
+                if (rs.next()) {
+                    montoActual = rs.getDouble("monto");
+                } else {
+                    System.out.println("El prestamo no exite, digite un prestamo que este registrado");
+                    return;
+                }
+            }
+
+                System.out.printf("Monto restante del prestamo: %,.2f%n", montoActual);
+
+                System.out.println("Ingrese el monto a pagar:");
+                double montoPago = input.nextDouble();
+                input.nextLine();
+
+                if (montoPago <= 0) {
+                    System.out.println("Que Que!!! Imposible mano el monto es de valor negativo");
+                    System.out.println("Tratame como el elemento 58 de la tabla periodica");
+                    return;
+                } else if (montoPago > montoActual){
+                    System.out.println("Quieres pagar mas de lo normal, nose tu pero no se puede");
+                    return;
+                }
+
+            try (PreparedStatement stmt = conexion.prepareStatement(gestorPago)) {
+                stmt.setInt(1, prestamoId);
+                stmt.setDate(2, java.sql.Date.valueOf(LocalDate.now()));
+                stmt.setDouble(3, montoPago);
+
+                stmt.executeUpdate();
+                System.out.println("El pago fue registrado correctamente");
+            }    
+
+
+            
+        } catch (Exception e) {
+            System.out.println("Error en Realizar pago");
+            e.printStackTrace();
+        }
+    }
+
     public void registrarPago(Scanner input) {
 
         String consultaMonto = "SELECT monto FROM prestamos WHERE id = ?";

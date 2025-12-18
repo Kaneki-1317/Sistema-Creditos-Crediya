@@ -16,6 +16,7 @@ public class PagoMenu {
                     1. Registrar Abono a Prestamo
                     2. Paz y salvo
                     3. lista de pagos
+                    4. Examen
                     0. Volver al Menu Principal
                 --------------------------------------
                 """);
@@ -26,6 +27,7 @@ public class PagoMenu {
                 case 1 -> servicio.registrarPago(input);
                 case 2 -> servicio.pazYSalvo(input);
                 case 3 -> servicio.listaHistoricoPagos();
+                case 4 -> servicio.GestorPagos(input);
                 case 0 -> System.out.println("Volver al Menu Principal");
                 default -> System.out.println("Opcion no valida, por favor intente de nuevo.");
             }
